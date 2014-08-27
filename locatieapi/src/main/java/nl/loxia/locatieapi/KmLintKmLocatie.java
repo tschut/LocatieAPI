@@ -8,4 +8,10 @@ public class KmLintKmLocatie {
         this.kmlint = kmlint;
         this.km = km;
     }
+
+    public KmLintKmLocatie(KmLintKmLocatie other) {
+        this.kmlint = other.kmlint;
+        this.km = other.km;
+    }
+
 }

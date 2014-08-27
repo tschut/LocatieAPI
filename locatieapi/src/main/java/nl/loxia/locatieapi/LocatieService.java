@@ -8,6 +8,8 @@ import javax.ws.rs.core.Response;
 
 @Path("/locatieapi")
 public class LocatieService {
+    private static final String MAPSERVICE_BASE_URL = "http://mapservices.prorail.nl/arcgis/rest/services/PGT_wfs/MapServer/";
+
     @GET
     @Path("/kmlint-en-km/{kmlint}/{km}")
     @Produces({ "application/json" })
@@ -15,6 +17,8 @@ public class LocatieService {
         String hello = "Hello world! " + kmlint + ":" + km;
 
         KmLintKmLocatie input = new KmLintKmLocatie(kmlint, km);
+        MapServiceQuerier querier = new MapServiceQuerier(MAPSERVICE_BASE_URL);
+        querier.query(input);
 
         return Response.ok(hello).build();
     }
