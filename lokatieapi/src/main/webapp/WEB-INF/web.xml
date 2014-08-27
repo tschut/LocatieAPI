@@ -27,23 +27,4 @@
 		<servlet-name>lokatieapi</servlet-name>
 		<url-pattern>/lokatieapi/*</url-pattern>
 	</servlet-mapping>
-
-	<!-- <filter> <filter-name>lokatieapi</filter-name> <filter-class>org.jboss.resteasy.plugins.server.servlet.FilterDispatcher</filter-class> 
-		<init-param> <param-name>javax.ws.rs.Application</param-name> <param-value>nl.loxia.lokatieapi.LokatieAPIApplication</param-value> 
-		</init-param> </filter> <filter-mapping> <filter-name>lokatieapi</filter-name> 
-		<url-pattern>/lokatieapi/*</url-pattern> </filter-mapping> -->
-
-	<!-- <context-param> <param-name>resteasy.servlet.mapping.prefix</param-name> 
-		<param-value>/lokatieapi</param-value> </context-param> -->
-
-	<!-- <listener> <listener-class> org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap 
-		</listener-class> </listener> -->
-	<!-- <servlet> <servlet-name>resteasy-servlet</servlet-name> <servlet-class> 
-		org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher </servlet-class> 
-		</servlet> -->
-	<!-- <servlet-mapping> <servlet-name>resteasy-servlet</servlet-name> <url-pattern>/lokatieapi/*</url-pattern> 
-		</servlet-mapping> -->
-
 </web-app>
-
-
