@@ -9,12 +9,12 @@ import javax.ws.rs.core.Response;
 @Path("/locatieapi")
 public class LocatieService {
     @GET
-    @Path("/geocode-en-km/{geocode}/{km}")
+    @Path("/kmlint-en-km/{kmlint}/{km}")
     @Produces({ "application/json" })
-    public Response helloWorld(@PathParam("geocode") String geocode, @PathParam("km") String km) {
-        String hello = "Hello world! " + geocode + ":" + km;
+    public Response helloWorld(@PathParam("kmlint") String kmlint, @PathParam("km") String km) {
+        String hello = "Hello world! " + kmlint + ":" + km;
 
-        GeocodeKmLocatie input = new GeocodeKmLocatie(geocode, km);
+        KmLintKmLocatie input = new KmLintKmLocatie(kmlint, km);
 
         return Response.ok(hello).build();
     }
