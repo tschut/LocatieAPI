@@ -13,6 +13,9 @@ public class LokatieService {
     @Produces({ "application/json" })
     public Response helloWorld(@PathParam("geocode") String geocode, @PathParam("km") String km) {
         String hello = "Hello world! " + geocode + ":" + km;
+
+        GeocodeKmLokatie input = new GeocodeKmLokatie(geocode, km);
+
         return Response.ok(hello).build();
     }
 }
