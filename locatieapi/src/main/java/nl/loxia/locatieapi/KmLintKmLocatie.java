@@ -1,10 +1,17 @@
 package nl.loxia.locatieapi;
 
+import nl.loxia.locatieapi.mapservice.data.RDCoordinaten;
+
 public class KmLintKmLocatie {
     public String kmlint;
-    public String km;
+    public int km;
 
-    public KmLintKmLocatie(String kmlint, String km) {
+    public String omschrijving;
+    public RDCoordinaten rdCoordinaten;
+    public Integer kmvan;
+    public Integer kmtot;
+
+    public KmLintKmLocatie(String kmlint, int km) {
         this.kmlint = kmlint;
         this.km = km;
     }

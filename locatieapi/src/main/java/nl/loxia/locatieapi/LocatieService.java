@@ -13,13 +13,11 @@ public class LocatieService {
     @GET
     @Path("/kmlint-en-km/{kmlint}/{km}")
     @Produces({ "application/json" })
-    public Response helloWorld(@PathParam("kmlint") String kmlint, @PathParam("km") String km) {
-        String hello = "Hello world! " + kmlint + ":" + km;
-
+    public Response helloWorld(@PathParam("kmlint") String kmlint, @PathParam("km") Integer km) {
         KmLintKmLocatie input = new KmLintKmLocatie(kmlint, km);
         MapServiceQuerier querier = new MapServiceQuerier(MAPSERVICE_BASE_URL);
-        querier.query(input);
+        KmLintKmLocatie queryResult = querier.query(input);
 
-        return Response.ok(hello).build();
+        return Response.ok(queryResult).build();
     }
 }

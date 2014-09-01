@@ -29,6 +29,16 @@
 			<artifactId>jersey-bundle</artifactId>
 			<version>1.18.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>3.0.8.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
