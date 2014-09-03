@@ -1,7 +1,7 @@
 package nl.loxia.locatieapi;
 
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 public class LocatieAPILocalServer {
 
@@ -9,7 +9,7 @@ public class LocatieAPILocalServer {
         Server server = new Server(8080);
         WebAppContext context = new WebAppContext();
         context.setWar("src/main/webapp");
-        server.addHandler(context);
+        server.setHandler(context);
         server.start();
     }
 
