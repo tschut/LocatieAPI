@@ -14,7 +14,7 @@
 	<servlet>
 		<servlet-name>locatieapi</servlet-name>
 		<servlet-class>
-			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+			com.googlecode.htmleasy.HtmleasyServletDispatcher
 		</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
