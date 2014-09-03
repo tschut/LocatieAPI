@@ -7,6 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>locatieapi</name>
 
+	<repositories>
+		<repository>
+			<id>htmleasy</id>
+			<url>http://htmleasy-maven.googlecode.com/svn/trunk/</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -38,6 +45,11 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>3.0.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.htmleasy</groupId>
+			<artifactId>htmleasy</artifactId>
+			<version>0.7</version>
 		</dependency>
 	</dependencies>
 
