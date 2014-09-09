@@ -1,8 +1,8 @@
 package nl.loxia.locatieapi;
 
 import java.io.IOException;
-
-import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 
 import nl.loxia.locatieapi.mapservice.data.MapServiceKmLint;
 import nl.loxia.locatieapi.mapservice.data.RDCoordinaten;
@@ -15,7 +15,7 @@ import com.sun.jersey.api.client.ClientResponse.Status;
 import com.sun.jersey.api.client.WebResource;
 
 public class MapServiceQuerier {
-    String baseUrl;
+    private String baseUrl;
 
     public MapServiceQuerier(String baseUrl) {
         this.baseUrl = baseUrl;
@@ -29,7 +29,7 @@ public class MapServiceQuerier {
 
         Client client = Client.create();
         WebResource webResource = client.resource(query);
-        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+        ClientResponse response = webResource.get(ClientResponse.class);
 
         if (response.getStatusInfo() != Status.OK) {
             // todo error handling
@@ -42,6 +42,26 @@ public class MapServiceQuerier {
         result.rdCoordinaten = Interpolator.interpolate(kmLintKmLocatie.km,
                 mapServiceKmLint.features[0].attributes.kmvan,
                 convertToRdCoordinaten(mapServiceKmLint.features[0].geometry.paths[0]));
+
+        return result;
+    }
+
+    public List<String> listKmLinten() {
+        String query = baseUrl + "18/query?text=kilometerlint&outFields=*&returnGeometry=true&f=pjson";
+
+        Client client = Client.create();
+        WebResource webResource = client.resource(query);
+        ClientResponse response = webResource.get(ClientResponse.class);
+
+        if (response.getStatusInfo() != Status.OK) {
+            // todo error handling
+        }
+        MapServiceKmLint kmLinten = parseJson(response, MapServiceKmLint.class);
+
+        List<String> result = new ArrayList<String>();
+        for (int i = 0; i < kmLinten.features.length; ++i) {
+            result.add(kmLinten.features[i].attributes.naam);
+        }
 
         return result;
     }

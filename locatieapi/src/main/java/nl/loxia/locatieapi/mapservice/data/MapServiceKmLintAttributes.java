@@ -13,4 +13,7 @@ public class MapServiceKmLintAttributes {
 
     @JsonProperty("KMTOT")
     public Double kmtot;
+
+    @JsonProperty("NAAM")
+    public String naam;
 }
